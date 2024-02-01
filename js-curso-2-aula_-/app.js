@@ -10,11 +10,15 @@ function verificarChute() {
         menagemSucesso = `Você acertou em ${tentativas} ${palavraTentativa}`;
         exibirTextoNaTela('h1', 'Parabénsss!!');
         exibirTextoNaTela('p', menagemSucesso);
-    }
+        limparCampo();
+        document.getElementById('reiniciar').removeAttribute('disabled');
+        }
     else if (chute < numeroaleatorio) {
         exibirTextoNaTela('p', 'o número correto é maior');
+        limparCampo();
     } else {
         exibirTextoNaTela('p', 'o número correto é menor');
+        limparCampo();
     }
     tentativas++;
 }
@@ -26,6 +30,10 @@ function exibirTextoNaTela(tag, texto){
 
 function geraNumeroAleatorio() {
     return parseInt(Math.random() * 10 + 1)
+}
+function limparCampo(){
+    chute = document.querySelector('input');
+    chute.value = '';
 }
 
 exibirTextoNaTela( 'h1',  'Jogo de número secreto');
