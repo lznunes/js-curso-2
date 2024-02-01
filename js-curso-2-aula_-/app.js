@@ -1,19 +1,22 @@
 let numeroaleatorio = geraNumeroAleatorio()
+let tentativas = 1
 
 
 function verificarChute() {
     let chute = document.querySelector('input').value;
+    let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+
     if (chute == numeroaleatorio) {
-        exibirTextoNaTela('h1', 'Parabénsss!!')
-        exibirTextoNaTela('p', 'Você acertou.')
+        menagemSucesso = `Você acertou em ${tentativas} ${palavraTentativa}`;
+        exibirTextoNaTela('h1', 'Parabénsss!!');
+        exibirTextoNaTela('p', menagemSucesso);
     }
     else if (chute < numeroaleatorio) {
-        exibirTextoNaTela('p', 'o número correto é maior')
+        exibirTextoNaTela('p', 'o número correto é maior');
     } else {
-        exibirTextoNaTela('p', 'o número correto é menor')
+        exibirTextoNaTela('p', 'o número correto é menor');
     }
-    console.log(chute == numeroaleatorio);
-    console.log(numeroaleatorio);
+    tentativas++;
 }
 
 function exibirTextoNaTela(tag, texto){
