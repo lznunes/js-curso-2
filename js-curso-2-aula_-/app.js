@@ -1,4 +1,4 @@
-let numeroaleatorio = geraNumeroAleatorio()
+let numerosecreto = geraNumeroAleatorio()
 let tentativas = 1
 
 
@@ -6,14 +6,14 @@ function verificarChute() {
     let chute = document.querySelector('input').value;
     let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
 
-    if (chute == numeroaleatorio) {
+    if (chute == numerosecreto) {
         menagemSucesso = `Você acertou em ${tentativas} ${palavraTentativa}`;
         exibirTextoNaTela('h1', 'Parabénsss!!');
         exibirTextoNaTela('p', menagemSucesso);
         limparCampo();
         document.getElementById('reiniciar').removeAttribute('disabled');
         }
-    else if (chute < numeroaleatorio) {
+    else if (chute < numerosecreto) {
         exibirTextoNaTela('p', 'o número correto é maior');
         limparCampo();
     } else {
@@ -36,5 +36,18 @@ function limparCampo(){
     chute.value = '';
 }
 
-exibirTextoNaTela( 'h1',  'Jogo de número secreto');
-exibirTextoNaTela( 'p',  'Escolha um número aleatório de 1 a 10:');
+function exibirMensagemInicais() {
+    exibirTextoNaTela( 'h1',  'Jogo de número secreto');
+    exibirTextoNaTela( 'p',  'Escolha um número aleatório de 1 a 10:');
+}
+
+function reiniciarJogo(){
+    numerosecreto = geraNumeroAleatorio();
+    limparCampo();
+    tentativas = 1;
+    exibirMensagemInicais();
+    document.getElementById('reiniciar').setAttribute('disabled', 'true');
+
+}
+
+exibirMensagemInicais();
