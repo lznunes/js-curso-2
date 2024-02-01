@@ -1,8 +1,10 @@
-let numeroaleatorio = geraNumeroAleatorio
+let numeroaleatorio = geraNumeroAleatorio()
 
 
 function verificarChute() {
-    console.log('0 botão foi clicado')
+    let chute = document.querySelector('input').value;
+    console.log(chute == numeroaleatorio);
+    console.log(numeroaleatorio);
 }
 
 function exibirTextoNaTela(tag, texto){
@@ -11,7 +13,7 @@ function exibirTextoNaTela(tag, texto){
 }
 
 function geraNumeroAleatorio() {
-    return Math.random * 10 + 1
+    return parseInt(Math.random() * 10 + 1)
 }
 
 exibirTextoNaTela( 'h1',  'Jogo de número secreto');
