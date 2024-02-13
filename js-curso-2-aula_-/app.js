@@ -1,5 +1,5 @@
 let listanumeroescolhidos = []
-let numeroLimite = 4
+let numeroLimite = 10
 let numerosecreto = geraNumeroAleatorio()
 let tentativas = 1
 
@@ -29,6 +29,7 @@ function verificarChute() {
 function exibirTextoNaTela(tag, texto){
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.3})
 }
 
 function geraNumeroAleatorio() {
